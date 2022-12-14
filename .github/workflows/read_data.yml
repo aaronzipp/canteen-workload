@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: install dependencies
-        run: python3 -m pip install requirements.txt
+        run: python3 -m pip install -r requirements.txt
       - name: run script
         run: python3 main.py
       - name: Commit report
