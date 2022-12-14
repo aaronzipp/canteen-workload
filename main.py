@@ -1,5 +1,4 @@
 import os
-import time
 from datetime import date, datetime
 
 from bs4 import BeautifulSoup
@@ -15,4 +14,3 @@ if __name__ == "__main__":
     current_time = datetime.now()
     with open(FILEPATH, "a") as file:
         file.write(f"{current_time},{count}\n")
-    time.sleep(WAITING_SECONDS)
