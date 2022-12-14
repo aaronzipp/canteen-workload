@@ -2,12 +2,17 @@ name: Read canteen data
 on:
   workflow_dispatch:
   schedule:
-    - cron: '50 9 * * MON-FRI'
+    - cron: '0/10 11-13 * * MON-FRI'
 jobs:
   report:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: ${{ runner.os }}-pip-
       - name: install dependencies
         run: python3 -m pip install -r requirements.txt
       - name: run script
