@@ -1,0 +1,19 @@
+name: Read canteen data
+on:
+  schedule:
+    - cron: '55 9 * * MON-FRI'
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: install dependencies
+        run: python3 -m pip install requirements.txt
+      - name: run script
+        run: python3 main.py
+      - name: Commit report
+        run: |
+          git config --global user.name 'Aaron Zipp'
+          git config --global user.email 'aaronzipp@users.noreply.github.com'
+          git commit -am "Added data $(date +'%m/%d/%Y')"
+          git push
