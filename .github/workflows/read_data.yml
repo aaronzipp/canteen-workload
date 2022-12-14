@@ -1,7 +1,7 @@
 name: Read canteen data
 on:
   schedule:
-    - cron: '55 9 * * MON-FRI'
+    - cron: '50 9 * * MON-FRI'
 jobs:
   report:
     runs-on: ubuntu-latest
@@ -15,5 +15,5 @@ jobs:
         run: |
           git config --global user.name 'Aaron Zipp'
           git config --global user.email 'aaronzipp@users.noreply.github.com'
-          git commit -am "Added data $(date +'%m/%d/%Y')"
+          git commit -am "Added data - $(date +'%d/%m/%Y')"
           git push
