@@ -2,7 +2,7 @@ name: Read canteen data
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0/10 11-13 * * MON-FRI'
+    - cron: '0/5 11-13 * * MON-FRI'
 jobs:
   report:
     runs-on: ubuntu-latest
